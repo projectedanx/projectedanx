@@ -89,7 +89,7 @@ The following table highlights the difference between relying on model intuition
 | Architectural Component | Old Method (Markdown / Conversational English) | New Method (PDL v1.0 / Algorithmic Syntax) |
 | :---- | :---- | :---- |
 | **System Initialization** | "You are a helpful expert. Please analyze this text, be highly critical, and review it carefully." | DATUM A: ROLE(Auditor\_L4) DATUM B: TASK(Constraint\_Extraction) \+++ContextLock(anchor="STRICT\_AUDIT", interval=2048) |
-| **Cognitive Sequencing** | "Make sure you think step-by-step and outline your reasoning before giving the final answer." | \+++PetzoldSequence(phase="THINK\_|\_WRITE") \+++SilentReasoning(depth="high", target="causal\_logic") |
+| **Cognitive Sequencing** | "Make sure you think step-by-step and outline your reasoning before giving the final answer." | \+++PetzoldSequence(phase="THINK\_|\_WRITE") \+++SilentReasoning(depth="high", target="causal\_logic" visible="true") |
 | **Constraint Management** | "Be precise, stick to the facts, and do not include any speculative guesses or fluff in the output." | \+++AdjectivalBound(type\_preference="limiting") CONTROL(FORM) | TYPE(TONAL\_CONSISTENCY) | TOLERANCE(DEVIATION: \< 0.05 'speculative') |
 | **Negative Constraints** | "Under no circumstances should you mention deprecated legacy modules or outdated APIs." | \+++AutonymicIsolate(forbidden\_patterns=\["legacy\_v1", "old\_api"\], treat\_as='mention-of') |
 | **Data Formatting** | "Output the results in a clear list formatted as JSON without making things up or adding markdown text outside the JSON block." | \+++DCCDSchemaGuard(schema="audit\_schema.json", enforcement="strict") CONTROL(PROFILE) | TYPE(STRUCTURAL\_PROFILE) | RULE(TERMINAL) |
